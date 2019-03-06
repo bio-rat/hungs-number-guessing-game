@@ -13,21 +13,33 @@
 
 <body>
   <div class="container text-center">
-    <h1>Number guessing game</h1>
-    <div>
-      <input placeholder="Enter your number" type="number" id="guessedNumber">
+    <div class="row">
+      <div class="col text-center">
+        <h3>Your guessed numbers</h3>
+        <div class="pastGuessesArea"></div>
+      </div>
+      <div class="col text-center">
+        <h1>Number guessing game</h1>
+        <div>
+          <input placeholder="Enter your number" type="number" id="guessedNumber" autofocus>
+          <button id="guessBtn" class="btn btn-primary">
+            Guess
+          </button>
+        </div>
+        <div class="alert" style="display:none">
+        </div>
+        <h3>Remaining guesses</h3>
+        <div class="guessRemaining">
+        </div>
+        <button id="restartBtn" class="btn btn-danger my-2">
+          Restart
+        </button>
+      </div>
+      <div class="col text-center">
+        <h3>Your past round scores</h3>
+        <div class="pastScoresArea"></div>
+      </div>
     </div>
-    <button id="guessBtn" class="btn btn-primary my-2">
-      Guess
-    </button>
-    <div class="alert" style="display:none">
-    </div>
-    <h3>Remaining guesses</h3>
-    <div class="guessRemaining">
-    </div>
-    <button id="restartBtn" class="btn btn-danger my-2">
-      Restart
-    </button>
   </div>
   <script src="main.js"></script>
 </body>

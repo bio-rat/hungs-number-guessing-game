@@ -13,6 +13,9 @@ To create a GIF, use [LiceCap](http://www.cockos.com/licecap/), [RecordIt](http:
 ```
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 ```
+## Netlify link
+
+https://hungs-guessing-game.netlify.com/
 
 ## User Stories
 
@@ -27,9 +30,9 @@ The following **required** functionalities are completed (this is a sample):
 
 The following **optional** features are implemented:
 
-* [ ] The user can see a history of past guesses.
-* [ ] When the user guesses the same number twice, the user receives an error message alerting them to the fact that they've already guessed that number. The number of guesses remaining should not decrease. 
-* [ ] The user can play multiple rounds of the game, and see results about previous rounds on the screen.
+* [x] The user can see a history of past guesses.
+* [x] When the user guesses the same number twice, the user receives an error message alerting them to the fact that they've already guessed that number. The number of guesses remaining should not decrease. 
+* [x] The user can play multiple rounds of the game, and see results about previous rounds on the screen.
 * [ ] The user can see their best score of the session. Best score is defined as the round that took the fewest guesses to arrive at the correct number. 
 * [ ] The user can see how long it took to finish each round in seconds.
 * [ ] The user is limited to 30 seconds per guess. If the user does not guess within the allotted time, the turn is lost. 

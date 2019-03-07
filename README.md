@@ -35,7 +35,7 @@ The following **optional** features are implemented:
 * [x] The user can play multiple rounds of the game, and see results about previous rounds on the screen.
 * [x] The user can see their best score of the session. Best score is defined as the round that took the fewest guesses to arrive at the correct number. 
 * [x] The user can see how long it took to finish each round in seconds.
-* [ ] The user is limited to 30 seconds per guess. If the user does not guess within the allotted time, the turn is lost. 
+* [x] The user is limited to 30 seconds per guess. If the user does not guess within the allotted time, the turn is lost. 
 
 ## Time Spent and Lessons Learned
 

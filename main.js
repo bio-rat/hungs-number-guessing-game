@@ -2,6 +2,8 @@ let generatedNumber = getRandomNumber();
 let turn = 10;
 let counter = 5;
 
+let stopThis;
+
 let mostRecentGuess = document.querySelector(".alert");
 
 let guessRemaining = document.querySelector(".guessRemaining");
@@ -42,7 +44,7 @@ function guessingNumber() {
 
   // Erase input box
   guessedValue.value = "";
-  
+
   // Validate input 
   if (isNaN(guessedNumber) || guessedNumber < 1 || guessedNumber > 101) {
 
@@ -65,8 +67,8 @@ function guessingNumber() {
     // If pass input validation => move to guesses remaining validation
     if (turn > 1) {
 
-      turn = turn - 1;
-      
+      turn --;
+
       //start countDown
       // countDown();
 
@@ -75,14 +77,14 @@ function guessingNumber() {
         mostRecentGuess.innerHTML = "you're too HIGH";
         mostRecentGuess.classList.add("alert-danger");
         mostRecentGuess.style.display = "block";
-        // counter = 6;
+        counter = 6;
 
       } else if (guessedNumber < generatedNumber) {
 
         mostRecentGuess.innerHTML = "you're too LOW";
         mostRecentGuess.classList.add("alert-danger");
         mostRecentGuess.style.display = "block";
-        // counter = 6;
+        counter = 6;
 
       } else if (guessedNumber = generatedNumber) {
 
@@ -106,8 +108,8 @@ function guessingNumber() {
         bestScoreArea.innerHTML = "<h4>Your best score: " + Math.max(...pastScores) + "</h4>";
 
         //Stop counter
-        // clearInterval(countDown);
-    
+        clearInterval(stopThis);
+
       }
 
       guessRemaining.innerHTML = `you have ${turn} turns left`;
@@ -132,7 +134,10 @@ function guessingNumber() {
 
       //Print bestScore
       bestScoreArea.innerHTML = "<h4>Your best score: " + Math.max(...pastScores) + "</h4>";
-      
+
+      //Counter =0
+      counter = 0;
+
     }
   }
 
@@ -152,6 +157,9 @@ function restartGame() {
   startBtn.style.display = "inline";
   guessingZone.style.display = "none";
 
+  //Stop counter
+  clearInterval(stopThis);
+
 }
 
 function startGame() {
@@ -161,46 +169,44 @@ function startGame() {
   //Round start counting here
   startTime = new Date();
 
-  //Stop countDown first
-
-
   //Start countdown
-  // countDown();
-  // counter = 6;
+  countDown();
+  counter = 6;
 }
 
-// function countDown(){
-//   setInterval(function() {
-//     counter--;
-//      if (counter >= 0) {
-//         span = document.querySelector(".timeLeft");
-//         span.innerHTML = counter;
-//         // mostRecentGuess.style.display = "none";
+function countDown() {
+  stopThis = setInterval(function () {
+    counter--;
+    if (counter >= 0) {
+      span = document.querySelector(".timeLeft");
+      span.innerHTML = `Time Left: ${counter}s`;
+      // mostRecentGuess.style.display = "none";
 
-//      }
-//      if (counter === 0) {
-        
-//         if (turn > 1) {
-//         counter = 6;
-//         turn--;
-//         // console.log(turn);
-//         guessRemaining.innerHTML = `you have ${turn} turns left`;
+    }
+    if (counter === 0) {
 
-//         // mostRecentGuess.style.display = "block";
-//         // mostRecentGuess.innerHTML = "You lose 1 turn";
-//         // mostRecentGuess.classList.remove("alert-danger","alert-success");
-//         // mostRecentGuess.classList.add("alert-success");
-        
-//         }
-//         if (turn === 0) {
-//           clearInterval(countDown);
-          
-//         }
+      if (turn > 1) {
+        counter = 6;
+        turn--;
+        console.log(turn);
+        guessRemaining.innerHTML = `you have ${turn} turns left`;
 
-        
-//       }
-//     }, 1000);
-// }
+        // mostRecentGuess.style.display = "block";
+        // mostRecentGuess.innerHTML = "You lose 1 turn";
+        // mostRecentGuess.classList.remove("alert-danger","alert-success");
+        // mostRecentGuess.classList.add("alert-success");
+
+      }
+      if (turn === 0) {
+        clearInterval(stopThis);
+        guessRemaining.innerHTML = "you have ran out of turns";
+
+      }
+
+
+    }
+  }, 1000);
+}
 
 
 // Select guessBtn

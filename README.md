@@ -37,6 +37,7 @@ The following **optional** features are implemented:
 * [x] The user can see how long it took to finish each round in seconds.
 * [x] The user is limited to 30 seconds per guess. If the user does not guess within the allotted time, the turn is lost. 
 
+
 ## Time Spent and Lessons Learned
 
 Time spent: **X** hours spent in total.
